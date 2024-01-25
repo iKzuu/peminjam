@@ -61,9 +61,9 @@ class RegisterView extends GetView<RegisterController> {
                     return null;
                   },
                 ),
-
                 TextFormField(
                   controller: controller.passwordController,
+                  obscureText: true,
                   decoration: InputDecoration(hintText: "Masukkan password"),
                   validator: (value) {
                     if (value!.length <2) {

@@ -32,6 +32,7 @@ class LoginView extends GetView<LoginController> {
 
                 TextFormField(
                   controller: controller.passwordController,
+                  obscureText: true,
                   decoration: InputDecoration(hintText: "Masukkan Password", icon: Icon(Icons.password)),
                   validator: (value) {
                     if (value!.length <2) {
@@ -42,12 +43,18 @@ class LoginView extends GetView<LoginController> {
                 ),
                 Obx(() => controller.loading.value?
                 CircularProgressIndicator():
-                ElevatedButton(onPressed: () {
-                  controller.login();
-                }, child: Text("Login"))
+                Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: ElevatedButton(onPressed: () {
+                      controller.login();
+                    }, child: Text("Login")),
                 ),
-                ElevatedButton(onPressed: () => Get.toNamed(Routes.REGISTER),
-                    child: Text("Register"))
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: ElevatedButton(onPressed: () => Get.toNamed(Routes.REGISTER),
+                      child: Text("Register")),
+                ),
               ],
             ),
           )

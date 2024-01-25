@@ -51,8 +51,8 @@ class RegisterController extends GetxController with StateMixin<List<DataRegiste
               "password": passwordController.text.toString(),
             });
         if (response.statusCode == 201) {
+          Get.snackbar("Selamat", "Register berhasil", backgroundColor: Colors.amber);
           Get.offAllNamed(Routes.LOGIN);
-          Get.back();
         }else{
           Get.snackbar("Sorry", "Register gagal", backgroundColor: Colors.orange);
         }
